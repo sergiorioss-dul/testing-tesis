@@ -3,7 +3,7 @@ const multer = require('multer');
 const shortid = require('shortid');
 const fs = require('fs');
 
-exports.borrarUsuario = async(req,res) =>{
+exports.borrarUsuario = async(req,res,next) =>{
     const usuario = await Usuarios.findOne({where:{id:req.params.id}});
     if(!usuario){
         res.json('No Encontrado!');
