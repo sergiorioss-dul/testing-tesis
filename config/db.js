@@ -15,5 +15,4 @@ module.exports = new Sequelize(process.env.BD_NOMBRE,process.env.BD_USER,process
         timestamps:false
     },
     logging:false,
-    ssl: true
 });
