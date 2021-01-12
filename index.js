@@ -8,14 +8,12 @@ require('dotenv').config({path:'variables.env'});
 require('./models/Usuarios')
 db.sync().then(()=> console.log('🚀')).catch(e => console.log(e));
 const app = express();
-//dominos para recibir peticiones
-
+//carpeta publica para que el front se comunique
+app.use(express.static('uploads'));
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use('/',router());
-//carpeta publica para que el front se comunique
-app.use(express.static('uploads'));
 
 const host = process.env.HOST || '0.0.0.0';
 const port = process.env.PORT || 5000;
