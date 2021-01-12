@@ -19,7 +19,7 @@ const corsOptions= {
         }
     }
 }
-app.use(cors(corsOptions));
+app.use(cors());
 //carpeta publica para que el front se comunique
 app.use(express.static('uploads'));
 app.use(bodyParser.json());
