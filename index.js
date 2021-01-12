@@ -8,10 +8,6 @@ require('dotenv').config({path:'variables.env'});
 require('./models/Usuarios')
 db.sync().then(()=> console.log('🚀')).catch(e => console.log(e));
 const app = express();
-//carpeta publica para que el front se comunique
-app.use(express.static('uploads'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:true}));
 const whitelist = ['https://nostalgic-gates-eaa5a7.netlify.app/'];
 const corsOptions= {
     origin: (origin,callback)=>{
@@ -24,6 +20,11 @@ const corsOptions= {
     }
 }
 app.use(cors(corsOptions));
+//carpeta publica para que el front se comunique
+app.use(express.static('uploads'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
+
 
 app.use('/',router());
 
