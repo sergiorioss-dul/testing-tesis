@@ -12,7 +12,7 @@ const app = express();
 app.use(express.static('uploads'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
-const whitelist = ['http://localhost:3000','https://nostalgic-gates-eaa5a7.netlify.app/'];
+const whitelist = ['https://nostalgic-gates-eaa5a7.netlify.app/'];
 const corsOptions= {
     origin: (origin,callback)=>{
         const existe= whitelist.some(dominio => dominio === origin);
