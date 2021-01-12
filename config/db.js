@@ -15,4 +15,13 @@ module.exports = new Sequelize(process.env.BD_NOMBRE,process.env.BD_USER,process
         timestamps:false
     },
     logging:false
-})
+});
+
+/*
+HOST=localhost
+BD_NOMBRE=tesis
+BD_USER=
+BD_PASS=
+BD_HOST=127.0.0.1
+BD_PORT=5432
+*/

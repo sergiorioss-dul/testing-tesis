@@ -8,7 +8,7 @@ require('dotenv').config({path:'variables.env'});
 require('./models/Usuarios')
 db.sync().then(()=> console.log('🚀')).catch(e => console.log(e));
 const app = express();
-const whitelist = ['https://nostalgic-gates-eaa5a7.netlify.app/'];
+/*const whitelist = ['https://nostalgic-gates-eaa5a7.netlify.app/'];
 const corsOptions= {
     origin: (origin,callback)=>{
         const existe= whitelist.some(dominio => dominio === origin);
@@ -18,14 +18,11 @@ const corsOptions= {
             callback(new Error('No permitido por Cors'))
         }
     }
-}
+}*/
 app.use(cors());
-//carpeta publica para que el front se comunique
 app.use(express.static('uploads'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
-
-
 app.use('/',router());
 
 const host = process.env.HOST || '0.0.0.0';
